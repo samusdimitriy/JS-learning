@@ -54,17 +54,41 @@
 
 // console.log(totalPosAndNegSum(numbers));
 
-const chopShop = {
-  stones: [
-    { name: "diamond", price: 1000, quantity: 2 },
-    { name: "emerald", price: 500, quantity: 5 },
-    { name: "sapphire", price: 300, quantity: 10 },
-    { name: "ruby", price: 200, quantity: 20 },
-  ],
-  calcTotalPrice(stoneName) {
-    const currentStone = this.stones.find(({ name }) => name === stoneName);
-    return currentStone.price * currentStone.quantity;
+// const chopShop = {
+//   stones: [
+//     { name: "diamond", price: 1000, quantity: 2 },
+//     { name: "emerald", price: 500, quantity: 5 },
+//     { name: "sapphire", price: 300, quantity: 10 },
+//     { name: "ruby", price: 200, quantity: 20 },
+//   ],
+//   calcTotalPrice(stoneName) {
+//     const currentStone = this.stones.find(({ name }) => name === stoneName);
+//     return currentStone.price * currentStone.quantity;
+//   },
+// };
+
+// console.log(chopShop.calcTotalPrice("ruby"));
+
+const calculator = {
+  a: 0,
+  b: 0,
+  read(a, b) {
+    this.a = a;
+    this.b = b;
+    return this;
+  },
+  add() {
+    return this.a + this.b;
+  },
+  mult() {
+    return this.a * this.b;
   },
 };
 
-console.log(chopShop.calcTotalPrice("ruby"));
+calculator.read(3, 5);
+console.log(calculator);
+
+console.log(calculator.add());
+console.log(calculator.mult());
+
+console.log(calculator.read(55, 10).mult());
