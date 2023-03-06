@@ -36,20 +36,35 @@
 
 // console.log(normalizeData(inputData));
 
-const numbers = [-90, 45, 0, 16, -18, 24, -67, 43];
+// const numbers = [-90, 45, 0, 16, -18, 24, -67, 43];
 
-const totalPosAndNegSum = function (arr) {
-  return arr.reduce(
-    (acc, element) => {
-      if (element > 0) {
-        acc.pos += element;
-      } else {
-        acc.neg += element;
-      }
-      return acc;
-    },
-    { pos: 0, neg: 0 }
-  );
+// const totalPosAndNegSum = function (arr) {
+//   return arr.reduce(
+//     (acc, element) => {
+//       if (element > 0) {
+//         acc.pos += element;
+//       } else {
+//         acc.neg += element;
+//       }
+//       return acc;
+//     },
+//     { pos: 0, neg: 0 }
+//   );
+// };
+
+// console.log(totalPosAndNegSum(numbers));
+
+const chopShop = {
+  stones: [
+    { name: "diamond", price: 1000, quantity: 2 },
+    { name: "emerald", price: 500, quantity: 5 },
+    { name: "sapphire", price: 300, quantity: 10 },
+    { name: "ruby", price: 200, quantity: 20 },
+  ],
+  calcTotalPrice(stoneName) {
+    const currentStone = this.stones.find(({ name }) => name === stoneName);
+    return currentStone.price * currentStone.quantity;
+  },
 };
 
-console.log(totalPosAndNegSum(numbers));
+console.log(chopShop.calcTotalPrice("ruby"));
