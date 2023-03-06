@@ -93,22 +93,36 @@
 
 // console.log(calculator.read(55, 10).mult());
 
-const customer = {
+// const customer = {
+//   name: "John",
+//   lastName: "Doe",
+//   getFullName() {
+//     console.log(this);
+//     return `${this.name} ${this.lastName}`;
+//   },
+// };
+
+// function makeMessage(callback) {
+//   console.log(`Hello, ${callback()}!`);
+// }
+
+// const user = {
+//   name: "James",
+//   lastName: "Bond",
+// };
+
+// makeMessage(customer.getFullName.bind(user));
+
+const obj = {
   name: "John",
-  lastName: "Doe",
-  getFullName() {
+  sayHi: () => {
     console.log(this);
-    return `${this.name} ${this.lastName}`;
+    console.log(this.name);
   },
 };
 
-function makeMessage(callback) {
-  console.log(`Hello, ${callback()}!`);
-}
-
-const user = {
-  name: "James",
-  lastName: "Bond",
+const obj2 = {
+  obj,
 };
 
-makeMessage(customer.getFullName.bind(user));
+obj2.obj.sayHi();
