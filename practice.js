@@ -69,26 +69,46 @@
 
 // console.log(chopShop.calcTotalPrice("ruby"));
 
-const calculator = {
-  a: 0,
-  b: 0,
-  read(a, b) {
-    this.a = a;
-    this.b = b;
-    return this;
-  },
-  add() {
-    return this.a + this.b;
-  },
-  mult() {
-    return this.a * this.b;
+// const calculator = {
+//   a: 0,
+//   b: 0,
+//   read(a, b) {
+//     this.a = a;
+//     this.b = b;
+//     return this;
+//   },
+//   add() {
+//     return this.a + this.b;
+//   },
+//   mult() {
+//     return this.a * this.b;
+//   },
+// };
+
+// calculator.read(3, 5);
+// console.log(calculator);
+
+// console.log(calculator.add());
+// console.log(calculator.mult());
+
+// console.log(calculator.read(55, 10).mult());
+
+const customer = {
+  name: "John",
+  lastName: "Doe",
+  getFullName() {
+    console.log(this);
+    return `${this.name} ${this.lastName}`;
   },
 };
 
-calculator.read(3, 5);
-console.log(calculator);
+function makeMessage(callback) {
+  console.log(`Hello, ${callback()}!`);
+}
 
-console.log(calculator.add());
-console.log(calculator.mult());
+const user = {
+  name: "James",
+  lastName: "Bond",
+};
 
-console.log(calculator.read(55, 10).mult());
+makeMessage(customer.getFullName.bind(user));
