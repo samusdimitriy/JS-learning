@@ -127,41 +127,72 @@
 
 // obj2.obj.sayHi();
 
-class Blogger {
-  constructor({ name, age, numbersOfPosts, topics }) {
-    this.name = name;
-    this.age = age;
-    this.numbersOfPosts = numbersOfPosts;
-    this.topics = topics;
+// class Blogger {
+//   constructor({ name, age, numbersOfPosts, topics }) {
+//     this.name = name;
+//     this.age = age;
+//     this.numbersOfPosts = numbersOfPosts;
+//     this.topics = topics;
+//   }
+//   getInfo() {
+//     return `Blogger ${this.name} is ${this.age} years old and has ${this.numbersOfPosts} posts`;
+//   }
+//   updatePostCount(value) {
+//     this.numbersOfPosts += value;
+//   }
+// }
+
+// const mango = new Blogger({
+//   name: "mango@mail.com",
+//   age: 24,
+//   numbersOfPosts: 20,
+//   topics: ["tech", "cooking"],
+// });
+
+// const poly = new Blogger({
+//   name: "poly@mail.com",
+//   age: 18,
+//   numbersOfPosts: 10,
+//   topics: ["sport", "cooking"],
+// });
+
+// console.table(mango);
+
+// console.log(mango.getInfo());
+
+// mango.updatePostCount(7);
+
+// console.log(mango.getInfo());
+
+// console.log(poly);
+
+class Rectangle {
+  constructor({ height, width }) {
+    this.name = "Rectangle";
+    this.width = width;
+    this.height = height;
   }
-  getInfo() {
-    return `Blogger ${this.name} is ${this.age} years old and has ${this.numbersOfPosts} posts`;
+  calculateArea() {
+    return this.width * this.height;
   }
-  updatePostCount(value) {
-    this.numbersOfPosts += value;
+
+  sayHello() {
+    console.log(
+      `Hello, I am ${
+        this.name
+      }. My area is ${this.calculateArea()} square units.`
+    );
   }
 }
 
-const mango = new Blogger({
-  name: "mango@mail.com",
-  age: 24,
-  numbersOfPosts: 20,
-  topics: ["tech", "cooking"],
-});
+class Square extends Rectangle {
+  constructor(length) {
+    super({ height: length, width: length });
+    this.name = "Square";
+  }
+}
 
-const poly = new Blogger({
-  name: "poly@mail.com",
-  age: 18,
-  numbersOfPosts: 10,
-  topics: ["sport", "cooking"],
-});
-
-console.table(mango);
-
-console.log(mango.getInfo());
-
-mango.updatePostCount(7);
-
-console.log(mango.getInfo());
-
-console.log(poly);
+const rectangle = new Rectangle({ height: 10, width: 20 });
+const square = new Square(10);
+rectangle.sayHello();
+square.sayHello();
