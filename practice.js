@@ -113,16 +113,55 @@
 
 // makeMessage(customer.getFullName.bind(user));
 
-const obj = {
-  name: "John",
-  sayHi: () => {
-    console.log(this);
-    console.log(this.name);
-  },
-};
+// const obj = {
+//   name: "John",
+//   sayHi: () => {
+//     console.log(this);
+//     console.log(this.name);
+//   },
+// };
 
-const obj2 = {
-  obj,
-};
+// const obj2 = {
+//   obj,
+// };
 
-obj2.obj.sayHi();
+// obj2.obj.sayHi();
+
+class Blogger {
+  constructor({ name, age, numbersOfPosts, topics }) {
+    this.name = name;
+    this.age = age;
+    this.numbersOfPosts = numbersOfPosts;
+    this.topics = topics;
+  }
+  getInfo() {
+    return `Blogger ${this.name} is ${this.age} years old and has ${this.numbersOfPosts} posts`;
+  }
+  updatePostCount(value) {
+    this.numbersOfPosts += value;
+  }
+}
+
+const mango = new Blogger({
+  name: "mango@mail.com",
+  age: 24,
+  numbersOfPosts: 20,
+  topics: ["tech", "cooking"],
+});
+
+const poly = new Blogger({
+  name: "poly@mail.com",
+  age: 18,
+  numbersOfPosts: 10,
+  topics: ["sport", "cooking"],
+});
+
+console.table(mango);
+
+console.log(mango.getInfo());
+
+mango.updatePostCount(7);
+
+console.log(mango.getInfo());
+
+console.log(poly);
