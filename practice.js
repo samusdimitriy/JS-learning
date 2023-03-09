@@ -166,33 +166,42 @@
 
 // console.log(poly);
 
-class Rectangle {
-  constructor({ height, width }) {
-    this.name = "Rectangle";
-    this.width = width;
-    this.height = height;
-  }
-  calculateArea() {
-    return this.width * this.height;
-  }
+// class Rectangle {
+//   constructor({ height, width }) {
+//     this.name = "Rectangle";
+//     this.width = width;
+//     this.height = height;
+//   }
+//   calculateArea() {
+//     return this.width * this.height;
+//   }
 
-  sayHello() {
-    console.log(
-      `Hello, I am ${
-        this.name
-      }. My area is ${this.calculateArea()} square units.`
-    );
-  }
+//   sayHello() {
+//     console.log(
+//       `Hello, I am ${
+//         this.name
+//       }. My area is ${this.calculateArea()} square units.`
+//     );
+//   }
+// }
+
+// class Square extends Rectangle {
+//   constructor(length) {
+//     super({ height: length, width: length });
+//     this.name = "Square";
+//   }
+// }
+
+// const rectangle = new Rectangle({ height: 10, width: 20 });
+// const square = new Square(10);
+// rectangle.sayHello();
+// square.sayHello();
+
+const person = { name: "Mango" };
+
+function sayHi(age) {
+  return `${this.name} is ${age}`;
 }
 
-class Square extends Rectangle {
-  constructor(length) {
-    super({ height: length, width: length });
-    this.name = "Square";
-  }
-}
-
-const rectangle = new Rectangle({ height: 10, width: 20 });
-const square = new Square(10);
-rectangle.sayHello();
-square.sayHello();
+console.log(sayHi.call(person, 18));
+console.log(sayHi.bind(person, 19)());
