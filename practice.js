@@ -197,11 +197,30 @@
 // rectangle.sayHello();
 // square.sayHello();
 
-const person = { name: "Mango" };
+// const person = { name: "Mango" };
 
-function sayHi(age) {
-  return `${this.name} is ${age}`;
+// function sayHi(age) {
+//   return `${this.name} is ${age}`;
+// }
+
+// console.log(sayHi.call(person, 18));
+// console.log(sayHi.bind(person, 19)());
+
+function slider(sliderCount) {
+  let photoNumber = sliderCount;
+
+  function animation(time) {
+    return `Animation ${photoNumber} in ${time}ms`;
+  }
+
+  return animation;
 }
 
-console.log(sayHi.call(person, 18));
-console.log(sayHi.bind(person, 19)());
+const slider1 = slider(10);
+console.log(slider1(200));
+
+const slider2 = slider(20);
+console.log(slider2(300));
+
+const slider3 = slider(30);
+console.log(slider3(400));
