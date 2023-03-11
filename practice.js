@@ -284,11 +284,19 @@
 
 // console.log(studentsUpd1);
 
-const fruits = ["apple", "pear", "cherry", "apple", "banana", "apple"];
+// const fruits = ["apple", "pear", "cherry", "apple", "banana", "apple"];
 
-const occ = fruits.reduce((acc, fruit) => {
-  acc[fruit] = acc[fruit] ? acc[fruit] + 1 : 1;
-  return acc;
-}, {});
+// const occ = fruits.reduce((acc, fruit) => {
+//   acc[fruit] = acc[fruit] ? acc[fruit] + 1 : 1;
+//   return acc;
+// }, {});
 
-console.log(occ);
+// console.log(occ);
+
+const users = { name: "Mango", age: 2, hobby: "html", premium: true };
+
+function convertHashToArray(hash) {
+  return Object.entries(hash);
+}
+
+console.dir(convertHashToArray(users));
