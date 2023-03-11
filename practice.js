@@ -266,6 +266,8 @@ const studentUpd = students.reduce((acc, student) => {
     group: "GoIT-74",
   };
   acc.push(studentObj);
+  debugger;
+
   return acc;
 }, []);
 
