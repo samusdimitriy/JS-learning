@@ -206,21 +206,52 @@
 // console.log(sayHi.call(person, 18));
 // console.log(sayHi.bind(person, 19)());
 
-function slider(sliderCount) {
-  let photoNumber = sliderCount;
+// function slider(sliderCount) {
+//   let photoNumber = sliderCount;
 
-  function animation(time) {
-    return `Animation ${photoNumber} in ${time}ms`;
+//   function animation(time) {
+//     return `Animation ${photoNumber} in ${time}ms`;
+//   }
+
+//   return animation;
+// }
+
+// const slider1 = slider(10);
+// console.log(slider1(200));
+
+// const slider2 = slider(20);
+// console.log(slider2(300));
+
+// const slider3 = slider(30);
+// console.log(slider3(400));
+
+// const user = {
+//   name: "John",
+//   age: 30,
+//   status: "Premium",
+// };
+
+// console.log(user.name);
+// console.log(user.age);
+// console.log(user.status);
+
+// const userChoice = prompt("Enter object key");
+// console.log(user[userChoice]);
+
+// console.log(user["name"]);
+// console.log(user["age"]);
+// console.log(user["status"]);
+
+class Samurai {
+  constructor(name) {
+    this.name = name;
   }
-
-  return animation;
+  hello() {
+    alert(`My name is ${this.name}`);
+  }
 }
 
-const slider1 = slider(10);
-console.log(slider1(200));
-
-const slider2 = slider(20);
-console.log(slider2(300));
-
-const slider3 = slider(30);
-console.log(slider3(400));
+let shogun = new Samurai("Shogun");
+console.log(shogun.__proto__.__proto__ === Object.prototype);
+console.log(shogun.__proto__.constructor.__proto__ === Function.prototype);
+console.log(shogun.__proto__.__proto__.__proto__ === null);
