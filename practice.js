@@ -256,30 +256,39 @@
 // console.log(shogun.__proto__.constructor.__proto__ === Function.prototype);
 // console.log(shogun.__proto__.__proto__.__proto__ === null);
 
-const students = ["Alex Simak", "Ivan Ivanov", "Petr Petrov"];
+// const students = ["Alex Simak", "Ivan Ivanov", "Petr Petrov"];
 
-const studentUpd = students.reduce((acc, student) => {
-  const [firstName, lastName] = student.split(" ");
-  const studentObj = {
-    firstName,
-    lastName,
-    group: "GoIT-74",
-  };
-  acc.push(studentObj);
-  debugger;
+// const studentUpd = students.reduce((acc, student) => {
+//   const [firstName, lastName] = student.split(" ");
+//   const studentObj = {
+//     firstName,
+//     lastName,
+//     group: "GoIT-74",
+//   };
+//   acc.push(studentObj);
+//   debugger;
 
+//   return acc;
+// }, []);
+
+// console.log(studentUpd);
+
+// const studentsUpd1 = students.map((student) => {
+//   const [firstName, lastName] = student.split(" ");
+//   return {
+//     firstName,
+//     lastName,
+//     group: "GoIT-74",
+//   };
+// });
+
+// console.log(studentsUpd1);
+
+const fruits = ["apple", "pear", "cherry", "apple", "banana", "apple"];
+
+const occ = fruits.reduce((acc, fruit) => {
+  acc[fruit] = acc[fruit] ? acc[fruit] + 1 : 1;
   return acc;
-}, []);
+}, {});
 
-console.log(studentUpd);
-
-const studentsUpd1 = students.map((student) => {
-  const [firstName, lastName] = student.split(" ");
-  return {
-    firstName,
-    lastName,
-    group: "GoIT-74",
-  };
-});
-
-console.log(studentsUpd1);
+console.log(occ);
