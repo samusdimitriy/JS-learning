@@ -242,16 +242,42 @@
 // console.log(user["age"]);
 // console.log(user["status"]);
 
-class Samurai {
-  constructor(name) {
-    this.name = name;
-  }
-  hello() {
-    alert(`My name is ${this.name}`);
-  }
-}
+// class Samurai {
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   hello() {
+//     alert(`My name is ${this.name}`);
+//   }
+// }
 
-let shogun = new Samurai("Shogun");
-console.log(shogun.__proto__.__proto__ === Object.prototype);
-console.log(shogun.__proto__.constructor.__proto__ === Function.prototype);
-console.log(shogun.__proto__.__proto__.__proto__ === null);
+// let shogun = new Samurai("Shogun");
+// console.log(shogun.__proto__.__proto__ === Object.prototype);
+// console.log(shogun.__proto__.constructor.__proto__ === Function.prototype);
+// console.log(shogun.__proto__.__proto__.__proto__ === null);
+
+const students = ["Alex Simak", "Ivan Ivanov", "Petr Petrov"];
+
+const studentUpd = students.reduce((acc, student) => {
+  const [firstName, lastName] = student.split(" ");
+  const studentObj = {
+    firstName,
+    lastName,
+    group: "GoIT-74",
+  };
+  acc.push(studentObj);
+  return acc;
+}, []);
+
+console.log(studentUpd);
+
+const studentsUpd1 = students.map((student) => {
+  const [firstName, lastName] = student.split(" ");
+  return {
+    firstName,
+    lastName,
+    group: "GoIT-74",
+  };
+});
+
+console.log(studentsUpd1);
