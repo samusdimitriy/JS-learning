@@ -320,20 +320,41 @@
 //   valueOutput.textContent = selectedOptionValue;
 // }
 
-const listWithId = document.querySelector("#menu");
-listWithId.style.textTransform = "uppercase";
-listWithId.style.fontSize = "24px";
-console.log(listWithId);
+// const listWithId = document.querySelector("#menu");
+// listWithId.style.textTransform = "uppercase";
+// listWithId.style.fontSize = "24px";
+// console.log(listWithId);
 
-const listWithClass = document.querySelector(".menu");
-console.log(listWithClass);
+// const listWithClass = document.querySelector(".menu");
+// console.log(listWithClass);
 
-const menuItemsByTagName = document.querySelectorAll("li");
-console.log(menuItemsByTagName);
+// const menuItemsByTagName = document.querySelectorAll("li");
+// console.log(menuItemsByTagName);
 
-const menuItemsByClass = document.querySelectorAll(".menu-item");
-console.log(menuItemsByClass);
+// const menuItemsByClass = document.querySelectorAll(".menu-item");
+// console.log(menuItemsByClass);
 
-const firstMenuItem = document.querySelector(".menu-item");
-firstMenuItem.style.color = "tomato";
-console.log(firstMenuItem);
+// const firstMenuItem = document.querySelector(".menu-item");
+// firstMenuItem.style.color = "tomato";
+// console.log(firstMenuItem);
+
+const targetBtn = document.querySelector("#btn");
+const addListenerBtn = document.querySelector("#add-btn");
+const removeListenerBtn = document.querySelector("#remove-btn");
+
+addListenerBtn.addEventListener("click", (event) => {
+  console.log(event);
+  console.log("add ListenerBtn");
+
+  targetBtn.addEventListener("click", onTargetBtnClick);
+});
+
+removeListenerBtn.addEventListener("click", (event) => {
+  console.log("remove ListenerBtn");
+
+  targetBtn.removeEventListener("click", onTargetBtnClick);
+});
+
+function onTargetBtnClick(event) {
+  console.log("click on targetBtn");
+}
