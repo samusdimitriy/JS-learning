@@ -299,23 +299,41 @@
 //   return Object.entries(hash);
 // }
 
-const select = document.querySelector(".pizza-select");
-const textOutput = document.querySelector(".text-output");
-const valueOutput = document.querySelector(".value-output");
+// const select = document.querySelector(".pizza-select");
+// const textOutput = document.querySelector(".text-output");
+// const valueOutput = document.querySelector(".value-output");
 
-setOutput();
+// setOutput();
 
-select.addEventListener("change", setOutput);
+// select.addEventListener("change", setOutput);
 
-function setOutput() {
-  console.log(select.options);
-  const selectedOptionValue = select.value;
-  console.log(selectedOptionValue);
-  const selectedOptionIndex = select.selectedIndex;
-  console.log(selectedOptionIndex);
-  const selectedOptionText = select.options[selectedOptionIndex].text;
-  console.log(selectedOptionText);
+// function setOutput() {
+//   console.log(select.options);
+//   const selectedOptionValue = select.value;
+//   console.log(selectedOptionValue);
+//   const selectedOptionIndex = select.selectedIndex;
+//   console.log(selectedOptionIndex);
+//   const selectedOptionText = select.options[selectedOptionIndex].text;
+//   console.log(selectedOptionText);
 
-  textOutput.textContent = selectedOptionText;
-  valueOutput.textContent = selectedOptionValue;
-}
+//   textOutput.textContent = selectedOptionText;
+//   valueOutput.textContent = selectedOptionValue;
+// }
+
+const listWithId = document.querySelector("#menu");
+listWithId.style.textTransform = "uppercase";
+listWithId.style.fontSize = "24px";
+console.log(listWithId);
+
+const listWithClass = document.querySelector(".menu");
+console.log(listWithClass);
+
+const menuItemsByTagName = document.querySelectorAll("li");
+console.log(menuItemsByTagName);
+
+const menuItemsByClass = document.querySelectorAll(".menu-item");
+console.log(menuItemsByClass);
+
+const firstMenuItem = document.querySelector(".menu-item");
+firstMenuItem.style.color = "tomato";
+console.log(firstMenuItem);
