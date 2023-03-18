@@ -338,23 +338,71 @@
 // firstMenuItem.style.color = "tomato";
 // console.log(firstMenuItem);
 
-const targetBtn = document.querySelector("#btn");
-const addListenerBtn = document.querySelector("#add-btn");
-const removeListenerBtn = document.querySelector("#remove-btn");
+// const targetBtn = document.querySelector("#btn");
+// const addListenerBtn = document.querySelector("#add-btn");
+// const removeListenerBtn = document.querySelector("#remove-btn");
 
-addListenerBtn.addEventListener("click", (event) => {
-  console.log(event);
-  console.log("add ListenerBtn");
+// addListenerBtn.addEventListener("click", (event) => {
+//   console.log(event);
+//   console.log("add ListenerBtn");
 
-  targetBtn.addEventListener("click", onTargetBtnClick);
-});
+//   targetBtn.addEventListener("click", onTargetBtnClick);
+// });
 
-removeListenerBtn.addEventListener("click", (event) => {
-  console.log("remove ListenerBtn");
+// removeListenerBtn.addEventListener("click", (event) => {
+//   console.log("remove ListenerBtn");
 
-  targetBtn.removeEventListener("click", onTargetBtnClick);
-});
+//   targetBtn.removeEventListener("click", onTargetBtnClick);
+// });
 
-function onTargetBtnClick(event) {
-  console.log("click on targetBtn");
+// function onTargetBtnClick(event) {
+//   console.log("click on targetBtn");
+// }
+
+// const form = document.querySelector(".js-register-form");
+
+// form.addEventListener("submit", onFormSubmit);
+
+// function onFormSubmit(event) {
+//   event.preventDefault();
+
+//   const {
+//     elements: { email, password },
+//   } = event.currentTarget;
+
+//   if (email.value === "" || password.value === "") {
+//     alert("Please fill in all fields");
+//     return;
+//   }
+
+//   const formData = {
+//     email: email.value,
+//     password: password.value,
+//   };
+
+//   console.log(formData);
+//   event.currentTarget.reset();
+// }
+
+// "use strict";
+
+// const fn = (arguments) => {
+//   console.log(arguments);
+// };
+
+// fn(1, 2, 3, 4, 5);
+
+function User(userObject) {
+  const { userName, age, numbersOfPost } = userObject;
+  this.userName = userName;
+  this.age = age;
+  this.numbersOfPost = numbersOfPost;
+  this.getInfo = function () {
+    console.log(
+      `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numbersOfPost} публікацій.`
+    );
+  };
 }
+
+const mango = new User({ userName: "Mango", age: 36, numbersOfPost: 10 });
+mango.getInfo();
