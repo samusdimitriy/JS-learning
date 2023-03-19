@@ -392,17 +392,72 @@
 
 // fn(1, 2, 3, 4, 5);
 
-function User(userObject) {
-  const { userName, age, numbersOfPost } = userObject;
-  this.userName = userName;
-  this.age = age;
-  this.numbersOfPost = numbersOfPost;
-  this.getInfo = function () {
-    console.log(
-      `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numbersOfPost} публікацій.`
-    );
-  };
-}
+// function User(userObject) {
+//   const { userName, age, numbersOfPost } = userObject;
+//   this.userName = userName;
+//   this.age = age;
+//   this.numbersOfPost = numbersOfPost;
+//   this.getInfo = function () {
+//     console.log(
+//       `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numbersOfPost} публікацій.`
+//     );
+//   };
+// }
 
-const mango = new User({ userName: "Mango", age: 36, numbersOfPost: 10 });
-mango.getInfo();
+// const mango = new User({ userName: "Mango", age: 36, numbersOfPost: 10 });
+// mango.getInfo();
+
+// const technologies = ["html", "css", "js", "react", "node", "mongo"];
+
+// const listEl = document.createElement("ul");
+
+// for (const technology of technologies) {
+//   const liEl = document.createElement("li");
+//   // liEl.textContent = technology;
+//   const text = document.createTextNode(technology);
+//   liEl.appendChild(text);
+//   listEl.appendChild(liEl);
+// }
+
+// document.body.appendChild(listEl);
+
+// const markup = `<ul>${technologies
+//   .map((technology) => `<li>${technology}</li>`)
+//   .join("")}</ul>`;
+// document.body.insertAdjacentHTML("beforeend", markup);
+
+// const markup = `<ul>${technologies.reduce(
+//   (acc, technology) => (acc += `<li>${technology}</li>`),
+//   ""
+// )}</ul>`;
+// document.body.insertAdjacentHTML("beforeend", markup);
+
+const colors = [
+  {
+    label: "Choose color",
+    color: "#FF0000",
+  },
+  {
+    label: "Tomato",
+    color: "tomato",
+  },
+  {
+    label: "Orange",
+    color: "orange",
+  },
+  {
+    label: "Yellow",
+    color: "yellow",
+  },
+];
+
+const fragment = document.createDocumentFragment();
+
+colors.map(({ label, color }) => {
+  const buttonEl = document.createElement("button");
+  buttonEl.textContent = label;
+  buttonEl.style.backgroundColor = color;
+  fragment.appendChild(buttonEl);
+});
+
+document.body.appendChild(fragment);
