@@ -432,32 +432,53 @@
 // )}</ul>`;
 // document.body.insertAdjacentHTML("beforeend", markup);
 
-const colors = [
-  {
-    label: "Choose color",
-    color: "#FF0000",
-  },
-  {
-    label: "Tomato",
-    color: "tomato",
-  },
-  {
-    label: "Orange",
-    color: "orange",
-  },
-  {
-    label: "Yellow",
-    color: "yellow",
-  },
-];
+// const colors = [
+//   {
+//     label: "Choose color",
+//     color: "#FF0000",
+//   },
+//   {
+//     label: "Tomato",
+//     color: "tomato",
+//   },
+//   {
+//     label: "Orange",
+//     color: "orange",
+//   },
+//   {
+//     label: "Yellow",
+//     color: "yellow",
+//   },
+// ];
 
-const fragment = document.createDocumentFragment();
+// const fragment = document.createDocumentFragment();
 
-colors.map(({ label, color }) => {
-  const buttonEl = document.createElement("button");
-  buttonEl.textContent = label;
-  buttonEl.style.backgroundColor = color;
-  fragment.appendChild(buttonEl);
+// colors.map(({ label, color }) => {
+//   const buttonEl = document.createElement("button");
+//   buttonEl.textContent = label;
+//   buttonEl.style.backgroundColor = color;
+//   fragment.appendChild(buttonEl);
+// });
+
+// document.body.appendChild(fragment);
+
+const parent = document.querySelector("#parent");
+const child = document.querySelector("#child");
+const descendant = document.querySelector("#descendant");
+
+parent.addEventListener("click", () => {
+  alert(
+    "Parent click handler. This alert will not appear when clicking on Descendant, the event will not reach here!"
+  );
 });
 
-document.body.appendChild(fragment);
+child.addEventListener("click", () => {
+  alert(
+    "Child click handler. This alert will not appear when clicking on Descendant, the event will not reach here!"
+  );
+});
+
+descendant.addEventListener("click", (event) => {
+  event.stopPropagation();
+  alert("Descendant click handler");
+});
