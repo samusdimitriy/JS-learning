@@ -1,0 +1,14 @@
+{
+  "name": "node-tut",
+  "version": "1.0.0",
+  "main": "practice.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+ "start": "node practice.js"
+  },
+  "keywords": [],
+  "author": "Dimitriy Samus sdim.sax@gmail.com",
+  "license": "ISC",
+  "description": ""
+}

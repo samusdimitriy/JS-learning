@@ -483,5 +483,72 @@
 //   alert("Descendant click handler");
 // });
 
-const result = _.add(2, 3);
-console.log(result); // 5
+const petsList = [
+  {
+    kind: "Dog",
+    year: 2015,
+    name: "lassie",
+  },
+  {
+    kind: "Cat",
+    year: 2016,
+    name: "einstein",
+  },
+  {
+    kind: "Hedgehod",
+    year: 2019,
+    name: "elizabeth",
+  },
+  {
+    kind: "Hamster",
+    year: 2020,
+    name: "alcatraz",
+  },
+];
+
+function generatePetCard({ kind, year, name }) {
+  const li = document.createElement("li");
+  li.classList.add("pet-card");
+
+  li.innerHTML = `
+    <h2 class="pet-card__title">${kind}</h2>
+    <p class="pet-card__text">Year: ${getAge(year)} ${getYearsEndWord(
+    getAge(year)
+  )}</p>
+    <p class="pet-card__text">Name: ${name}</p>
+    <button class="pet-card__btn">Delete</button>
+  `;
+
+  // The deleteBtn variable and the event listener are now uncommented
+  const deleteBtn = li.querySelector(".pet-card__btn");
+  deleteBtn.addEventListener("click", () => {
+    li.remove();
+  });
+
+  return li;
+}
+
+function getAge(year) {
+  return new Date().getFullYear() - year;
+}
+
+function getYearsEndWord(age) {
+  if (age % 10 === 1 && age % 100 !== 11) {
+    return "year";
+  } else if (
+    age % 10 >= 2 &&
+    age % 10 <= 4 &&
+    (age % 100 < 10 || age % 100 >= 20)
+  ) {
+    return "years";
+  } else {
+    return "years";
+  }
+}
+
+const petsContainer = document.querySelector(".pets");
+
+petsList.forEach((pet) => {
+  const petCard = generatePetCard(pet);
+  petsContainer.appendChild(petCard);
+});
