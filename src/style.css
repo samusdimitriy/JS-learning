@@ -1,6 +1,11 @@
-body {
+/* body {
   margin: 0;
   min-width: 250px;
+} */
+
+body {
+  margin: 16px;
+  text-align: center;
 }
 
 /* Include the padding and border in an element's total width and height */
