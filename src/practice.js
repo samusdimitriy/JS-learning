@@ -1,28 +1,28 @@
 // const inputData = [
 //   {
 //     id: 1,
-//     name: 'Item 1',
+//     name: "Item 1",
 //   },
 //   {
 //     id: 2,
-//     name: 'Item 2',
+//     name: "Item 2",
 //   },
 //   {
 //     id: 4,
-//     name: 'Item 4',
+//     name: "Item 4",
 //   },
 //   {
 //     id: 7,
-//     name: 'Item 7',
+//     name: "Item 7",
 //   },
 // ];
 
-// const normalizeData = array => {
+// const normalizeData = (array) => {
 //   const resultObjectData = {};
 //   const objectData = {};
 //   const arrayId = [];
 
-//   array.forEach(item => {
+//   array.forEach((item) => {
 //     arrayId.push(item.id);
 //     console.log(arrayId);
 
@@ -384,7 +384,7 @@
 //   event.currentTarget.reset();
 // }
 
-// "use strict";
+// ("use strict");
 
 // const fn = (arguments) => {
 //   console.log(arguments);
@@ -483,72 +483,96 @@
 //   alert("Descendant click handler");
 // });
 
-const petsList = [
-  {
-    kind: "Dog",
-    year: 2015,
-    name: "lassie",
-  },
-  {
-    kind: "Cat",
-    year: 2016,
-    name: "einstein",
-  },
-  {
-    kind: "Hedgehod",
-    year: 2019,
-    name: "elizabeth",
-  },
-  {
-    kind: "Hamster",
-    year: 2020,
-    name: "alcatraz",
-  },
-];
+// const petsList = [
+//   {
+//     kind: "Dog",
+//     year: 2015,
+//     name: "lassie",
+//   },
+//   {
+//     kind: "Cat",
+//     year: 2016,
+//     name: "einstein",
+//   },
+//   {
+//     kind: "Hedgehod",
+//     year: 2019,
+//     name: "elizabeth",
+//   },
+//   {
+//     kind: "Hamster",
+//     year: 2020,
+//     name: "alcatraz",
+//   },
+// ];
 
-function generatePetCard({ kind, year, name }) {
-  const li = document.createElement("li");
-  li.classList.add("pet-card");
+// function generatePetCard({ kind, year, name }) {
+//   const li = document.createElement("li");
+//   li.classList.add("pet-card");
 
-  li.innerHTML = `
-    <h2 class="pet-card__title">${kind}</h2>
-    <p class="pet-card__text">Year: ${getAge(year)} ${getYearsEndWord(
-    getAge(year)
-  )}</p>
-    <p class="pet-card__text">Name: ${name}</p>
-    <button class="pet-card__btn">Delete</button>
-  `;
+//   li.innerHTML = `
+//     <h2 class="pet-card__title">${kind}</h2>
+//     <p class="pet-card__text">Year: ${getAge(year)} ${getYearsEndWord(
+//     getAge(year)
+//   )}</p>
+//     <p class="pet-card__text">Name: ${name}</p>
+//     <button class="pet-card__btn">Delete</button>
+//   `;
 
-  // The deleteBtn variable and the event listener are now uncommented
-  const deleteBtn = li.querySelector(".pet-card__btn");
-  deleteBtn.addEventListener("click", () => {
-    li.remove();
-  });
+//   // The deleteBtn variable and the event listener are now uncommented
+// const deleteBtn = li.querySelector(".pet-card__btn");
+// deleteBtn.addEventListener("click", () => {
+//   li.remove();
+// });
 
-  return li;
-}
+// function getAge(year) {
+//   return new Date().getFullYear() - year;
+// }
 
-function getAge(year) {
-  return new Date().getFullYear() - year;
-}
+// function getYearsEndWord(age) {
+//   if (age % 10 === 1 && age % 100 !== 11) {
+//     return "year";
+//   } else if (
+//     age % 10 >= 2 &&
+//     age % 10 <= 4 &&
+//     (age % 100 < 10 || age % 100 >= 20)
+//   ) {
+//     return "years";
+//   } else {
+//     return "years";
+//   }
+// }
 
-function getYearsEndWord(age) {
-  if (age % 10 === 1 && age % 100 !== 11) {
-    return "year";
-  } else if (
-    age % 10 >= 2 &&
-    age % 10 <= 4 &&
-    (age % 100 < 10 || age % 100 >= 20)
-  ) {
-    return "years";
-  } else {
-    return "years";
-  }
-}
+// const petsContainer = document.querySelector(".pets");
 
-const petsContainer = document.querySelector(".pets");
+// petsList.forEach((pet) => {
+//   const petCard = generatePetCard(pet);
+//   petsContainer.appendChild(petCard);
+// });
 
-petsList.forEach((pet) => {
-  const petCard = generatePetCard(pet);
-  petsContainer.appendChild(petCard);
-});
+// const save = (key, value) => {
+//   try {
+//     const serializedState = JSON.stringify(value);
+//     localStorage.setItem(key, serializedState);
+//   } catch (error) {
+//     console.error("Set state error: ", error.message);
+//   }
+// };
+
+// const load = (key) => {
+//   try {
+//     const serializedState = localStorage.getItem(key);
+//     return serializedState === null ? undefined : JSON.parse(serializedState);
+//   } catch (error) {
+//     console.error("Get state error: ", error.message);
+//   }
+// };
+
+// const remove = (key) => {
+//   try {
+//     localStorage.removeItem(key);
+//   } catch (error) {
+//     console.error("Remove state error: ", error.message);
+//   }
+// };
+import Parcel from "parcel";
