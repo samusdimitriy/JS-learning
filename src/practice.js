@@ -599,3 +599,34 @@
 //   clearInterval(timerId);
 //   console.log(`Interval with id ${timerId} has stopped!`);
 // });
+
+// const date = new Date();
+
+// console.log(date);
+// // "Fri Jun 18 2021 15:01:35 GMT+0300 (Eastern European Summer Time)"
+
+// console.log(date.toString());
+// // "Fri Jun 18 2021 15:01:35 GMT+0300 (Eastern European Summer Time)"
+// Change value of isSuccess variable to call resolve or reject
+// Change value of isSuccess variable to call resolve or reject
+// Change value of isSuccess variable to call resolve or reject
+const fetchUserFromServer = (username) => {
+  return new Promise((resolve, reject) => {
+    console.log(`Fetching data for ${username}`);
+
+    setTimeout(() => {
+      // Change value of isSuccess variable to simulate request status
+      const isSuccess = false;
+
+      if (isSuccess) {
+        resolve("success value");
+      } else {
+        reject("error");
+      }
+    }, 2000);
+  });
+};
+
+fetchUserFromServer("Mango")
+  .then((user) => console.log(user))
+  .catch((error) => console.error(error));
