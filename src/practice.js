@@ -610,23 +610,38 @@
 // Change value of isSuccess variable to call resolve or reject
 // Change value of isSuccess variable to call resolve or reject
 // Change value of isSuccess variable to call resolve or reject
-const fetchUserFromServer = (username) => {
+// const fetchUserFromServer = (username) => {
+//   return new Promise((resolve, reject) => {
+//     console.log(`Fetching data for ${username}`);
+
+//     setTimeout(() => {
+//       // Change value of isSuccess variable to simulate request status
+//       const isSuccess = false;
+
+//       if (isSuccess) {
+//         resolve("success value");
+//       } else {
+//         reject("error");
+//       }
+//     }, 2000);
+//   });
+// };
+
+// fetchUserFromServer("Mango")
+//   .then((user) => console.log(user))
+//   .catch((error) => console.error(error));
+
+const makePromise = () => {
   return new Promise((resolve, reject) => {
-    console.log(`Fetching data for ${username}`);
-
+    const passed = Math.random() > 0.5;
     setTimeout(() => {
-      // Change value of isSuccess variable to simulate request status
-      const isSuccess = false;
-
-      if (isSuccess) {
-        resolve("success value");
-      } else {
-        reject("error");
+      if (passed) {
+        resolve("resolved");
       }
-    }, 2000);
-  });
+      reject("rejected");
+    });
+  }, 2000);
 };
 
-fetchUserFromServer("Mango")
-  .then((user) => console.log(user))
-  .catch((error) => console.error(error));
+makePromise().then((result) => console.log(result)),
+  (error) => console.log(error);

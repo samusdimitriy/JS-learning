@@ -1,1 +1,1 @@
-import * as apiService from "./practice.js";
+import "./practice.js";
