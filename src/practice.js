@@ -631,17 +631,76 @@
 //   .then((user) => console.log(user))
 //   .catch((error) => console.error(error));
 
-const makePromise = () => {
-  return new Promise((resolve, reject) => {
-    const passed = Math.random() > 0.5;
-    setTimeout(() => {
-      if (passed) {
-        resolve("resolved");
-      }
-      reject("rejected");
-    });
-  }, 2000);
-};
+// const makePromise = () => {
+//   return new Promise((resolve, reject) => {
+//     const passed = Math.random() > 0.5;
+//     setTimeout(() => {
+//       if (passed) {
+//         resolve("resolved");
+//       }
+//       reject("rejected");
+//     });
+//   }, 2000);
+// };
 
-makePromise().then((result) => console.log(result)),
-  (error) => console.log(error);
+// makePromise().then((result) => console.log(result)),
+//   (error) => console.log(error);
+
+// doSomething().then(function () {
+//   return doSomethingElse();
+// });
+
+// doSomething().then(function () {
+//   doSomethingElse();
+// });
+
+// doSomething().then(doSomethingElse());
+
+// doSomething().then(doSomethingElse);
+
+// Promise.resolve("foo")
+//   .then(Promise.resolve("bar"))
+//   .then(function (result) {
+//     console.log(result);
+//   });
+
+// Promise.resolve("foo")
+//   .then(null)
+//   .then(function (result) {
+//     console.log(result);
+//   });
+
+// Promise.resolve("foo")
+//   .then(function () {
+//     return Promise.resolve("bar");
+//   })
+//   .then(function (result) {
+//     console.log(result);
+//   });
+
+// const promise = new Promise((resolve) => {
+//   resolve(10);
+// });
+
+// promise
+//   .then((value) => {
+//     new Promise((resolve) => {
+//       resolve(value * 2);
+//     });
+//   })
+//   .then((value) => console.log(value));
+
+// setTimeout(function timeout() {
+//   console.log("A");
+// }, 0);
+
+// let p = new Promise(function (resolve, reject) {
+//   console.log("B");
+//   resolve();
+// });
+
+// p.then(function () {
+//   console.log("C");
+// });
+
+// console.log("D");
