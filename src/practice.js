@@ -704,3 +704,63 @@
 // });
 
 // console.log("D");
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log("Preparing data...");
+//     const user = {
+//       id: 0,
+//       name: "Vladilen",
+//       age: 25,
+//       status: true,
+//     };
+//     if (user.id === undefined) reject(new Error("No id"));
+//     resolve(user);
+//   }, 2000);
+// });
+
+// promise.then((data) => {
+//   return new Promise((resolve, reject) => {
+//     data.status = false;
+//     resolve(data);
+// setTimeout(() => {
+//   console.log("Data received", data);
+//   data.status = false;
+// }, 2000);
+//   })
+//     .then((data) => console.log(data))
+//     .catch((error) => console.error(error));
+// });
+
+// setTimeout(() => {
+//   console.log("Preparing data...");
+//   const user = {
+//     id: 0,
+//     name: "Vladilen",
+//     age: 25,
+//     status: true,
+//   };
+
+//   setTimeout(() => {
+//     user.status = false;
+//     console.log("Data received", user);
+//   }, 1000);
+// }, 2000);
+
+const sleep = (ms) =>
+  new Promise((resolve, reject) =>
+    setTimeout(() => {
+      if (ms === 3000) reject("1000");
+      resolve(ms);
+    }, ms)
+  );
+
+// sleep(2000).then(() => console.log("After 2 sec"));
+// sleep(3000).then(() => console.log("After 3 sec"));
+
+Promise.race([sleep(2000), sleep(3000), sleep(1000)])
+  .then((data) => {
+    console.log("race promises");
+    console.log(data);
+  })
+  .catch((error) => console.error(error));
