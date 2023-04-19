@@ -661,6 +661,7 @@
 // Promise.resolve("foo")
 //   .then(Promise.resolve("bar"))
 //   .then(function (result) {
+
 //     console.log(result);
 //   });
 
@@ -677,6 +678,9 @@
 //   .then(function (result) {
 //     console.log(result);
 //   });
+// function foo(data) {
+//   console.log(data);
+// }
 
 // const promise = new Promise((resolve) => {
 //   resolve(10);
@@ -684,11 +688,11 @@
 
 // promise
 //   .then((value) => {
-//     new Promise((resolve) => {
-//       resolve(value * 2);
-//     });
+//     foo(value);
 //   })
-//   .then((value) => console.log(value));
+
+//   .then((value) => console.log(value))
+//   .catch((error) => console.log("error"));
 
 // setTimeout(function timeout() {
 //   console.log("A");
@@ -747,20 +751,107 @@
 //   }, 1000);
 // }, 2000);
 
-const sleep = (ms) =>
-  new Promise((resolve, reject) =>
-    setTimeout(() => {
-      if (ms === 3000) reject("1000");
-      resolve(ms);
-    }, ms)
-  );
+// const sleep = (ms) =>
+//   new Promise((resolve, reject) =>
+//     setTimeout(() => {
+//       if (ms === 3000) reject("1000");
+//       resolve(ms);
+//     }, ms)
+//   );
 
 // sleep(2000).then(() => console.log("After 2 sec"));
 // sleep(3000).then(() => console.log("After 3 sec"));
 
-Promise.race([sleep(2000), sleep(3000), sleep(1000)])
-  .then((data) => {
-    console.log("race promises");
-    console.log(data);
-  })
-  .catch((error) => console.error(error));
+// Promise.race([sleep(2000), sleep(3000), sleep(1000)])
+//   .then((data) => {
+//     console.log("race promises");
+//     console.log(data);
+//   })
+//   .catch((error) => console.error(error));
+
+// const fetchPostsBtn = document.querySelector(".btn");
+// const userList = document.querySelector(".posts");
+
+// fetchPostsBtn.addEventListener("click", () => {
+//   fetchPosts()
+//     .then((posts) => renderPosts(posts))
+//     .catch((error) => console.log(error));
+// });
+
+// function fetchPosts() {
+//   // Change the number of items in the group here
+//   return fetch("https://jsonplaceholder.typicode.com/posts?_limit=-99").then(
+//     (response) => {
+//       if (!response.ok) {
+//         throw new Error(response.status);
+//       }
+//       return response.json();
+//     }
+//   );
+// }
+
+// function renderPosts(posts) {
+//   const markup = posts
+//     .map(({ id, title, body, userId }) => {
+//       return `<li>
+//           <h2 class="post-title">${title.slice(0, 30)}</h2>
+//           <p><b>Post id</b>: ${id}</p>
+//           <p><b>Author id</b>: ${userId}</p>
+//           <p class="post-body">${body}</p>
+//         </li>`;
+//     })
+//     .join("");
+//   userList.innerHTML = markup;
+// }
+
+// setTimeout(function timeout() {
+//   console.log("A");
+// }, 0);
+
+// let p = new Promise(function (resolve, reject) {
+//   console.log("B");
+//   resolve();
+// });
+
+// Promise.resolve(console.log("foo"));
+
+// p.then(function () {
+//   console.log("C");
+// });
+
+// console.log("D");
+
+// https://newsapi.org/v2/everything?q=keyword&apiKey=cf67ba6a98794fccaafe9d968f0ffe41
+
+// function getNews(keyword) {
+//   return fetch(
+//     `${ENDPOINT}?apiKey=${API_KEY}&pageSize=1&q=${keyword}&page=1`
+//   ).then((response) => response.json());
+// }
+
+// export { getNews };
+
+// export default class NewsApiService {
+//   static ENDPOINT = "https://newsapi.org/v2/everything";
+//   static API_KEY = "cf67ba6a98794fccaafe9d968f0ffe41";
+//   constructor() {
+//     this.query = "";
+//     this.page = 1;
+//   }
+
+//   getNews() {
+//     const url = `${NewsApiService.ENDPOINT}?apiKey=${NewsApiService.API_KEY}&pageSize=5&q=${this.query}&page=${this.page}`;
+
+//     return fetch(url).then((response) => {
+//       this.incrementPage();
+//       return response.json();
+//     });
+//   }
+
+//   incrementPage() {
+//     this.page += 1;
+//   }
+//   resetPage() {
+//     this.page = 1;
+//   }
+// }
