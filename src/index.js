@@ -143,42 +143,80 @@ import "./practice.js";
 //   });
 // }
 
-const postToAdd = {
-  author: "Mango",
-  body: "CRUD is awesome",
-};
+// const postToAdd = {
+//   author: "Mango",
+//   body: "CRUD is awesome",
+// };
 
-const options = {
-  method: "POST",
-  body: JSON.stringify(postToAdd),
-  headers: {
-    "Content-Type": "application/json; charset=UTF-8",
-  },
-};
+// const options = {
+//   method: "POST",
+//   body: JSON.stringify(postToAdd),
+//   headers: {
+//     "Content-Type": "application/json; charset=UTF-8",
+//   },
+// };
 
-fetch("https://jsonplaceholder.typicode.com/posts", options)
-  .then((response) => response.json())
-  .then((post) => console.log(post))
-  .catch((error) => console.log(error));
+// fetch("https://jsonplaceholder.typicode.com/posts", options)
+//   .then((response) => response.json())
+//   .then((post) => console.log(post))
+//   .catch((error) => console.log(error));
 
-// Change value of id property to update different post
-const postToUpdate = {
-  id: 2,
-  body: "CRUD is really awesome",
-};
+// // Change value of id property to update different post
+// const postToUpdate = {
+//   id: 2,
+//   body: "CRUD is really awesome",
+// };
 
-const optionsNew = {
-  method: "PATCH",
-  body: JSON.stringify(postToUpdate),
-  headers: {
-    "Content-Type": "application/json; charset=UTF-8",
-  },
-};
+// const optionsNew = {
+//   method: "PATCH",
+//   body: JSON.stringify(postToUpdate),
+//   headers: {
+//     "Content-Type": "application/json; charset=UTF-8",
+//   },
+// };
 
-fetch(
-  `https://jsonplaceholder.typicode.com/posts/${postToUpdate.id}`,
-  optionsNew
-)
-  .then((response) => response.json())
-  .then((post) => console.log(post))
-  .catch((error) => console.log("ERROR" + error));
+// fetch(
+//   `https://jsonplaceholder.typicode.com/posts/${postToUpdate.id}`,
+//   optionsNew
+// )
+//   .then((response) => response.json())
+//   .then((post) => console.log(post))
+//   .catch((error) => console.log("ERROR" + error));
+
+const fetchUsersBtn = document.querySelector(".btn");
+const userList = document.querySelector(".user-list");
+
+fetchUsersBtn.addEventListener("click", async () => {
+  try {
+    const users = await fetchUsers();
+    renderUserListItems(users);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+async function fetchUsers() {
+  const baseUrl = "https://jsonplaceholder.typicode.com";
+  const userIds = [1, 2, 3, 4, 5];
+
+  const arrayOfPromises = userIds.map(async (userId) => {
+    const response = await fetch(`${baseUrl}/users/${userId}`);
+    return response.json();
+  });
+
+  const users = await Promise.all(arrayOfPromises);
+  return users;
+}
+
+function renderUserListItems(users) {
+  const markup = users
+    .map(
+      (user) => `<li class="item">
+        <p><b>Name</b>: ${user.name}</p>
+        <p><b>Email</b>: ${user.email}</p>
+        <p><b>Company</b>: ${user.company.name}</p>
+      </li>`
+    )
+    .join("");
+  userList.innerHTML = markup;
+}
