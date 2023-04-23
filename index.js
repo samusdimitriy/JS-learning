@@ -1,4 +1,3 @@
-import "./practice.js";
 // import LoadMoreBtn from "./components/LoadMoreBtn.js";
 // import NewsApiService from "./practice.js";
 
@@ -183,40 +182,70 @@ import "./practice.js";
 //   .then((post) => console.log(post))
 //   .catch((error) => console.log("ERROR" + error));
 
-const fetchUsersBtn = document.querySelector(".btn");
-const userList = document.querySelector(".user-list");
+// const fetchUsersBtn = document.querySelector(".btn");
+// const userList = document.querySelector(".user-list");
 
-fetchUsersBtn.addEventListener("click", async () => {
-  try {
-    const users = await fetchUsers();
-    renderUserListItems(users);
-  } catch (error) {
-    console.log(error.message);
-  }
-});
+// fetchUsersBtn.addEventListener("click", async () => {
+//   try {
+//     const users = await fetchUsers();
+//     renderUserListItems(users);
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// });
 
-async function fetchUsers() {
-  const baseUrl = "https://jsonplaceholder.typicode.com";
-  const userIds = [1, 2, 3, 4, 5];
+// async function fetchUsers() {
+//   const baseUrl = "https://jsonplaceholder.typicode.com";
+//   const userIds = [1, 2, 3, 4, 5];
 
-  const arrayOfPromises = userIds.map(async (userId) => {
-    const response = await fetch(`${baseUrl}/users/${userId}`);
-    return response.json();
-  });
+//   const arrayOfPromises = userIds.map(async (userId) => {
+//     const response = await fetch(`${baseUrl}/users/${userId}`);
+//     return response.json();
+//   });
 
-  const users = await Promise.all(arrayOfPromises);
-  return users;
+//   const users = await Promise.all(arrayOfPromises);
+//   return users;
+// }
+
+// function renderUserListItems(users) {
+//   const markup = users
+//     .map(
+//       (user) => `<li class="item">
+//         <p><b>Name</b>: ${user.name}</p>
+//         <p><b>Email</b>: ${user.email}</p>
+//         <p><b>Company</b>: ${user.company.name}</p>
+//       </li>`
+//     )
+//     .join("");
+//   userList.innerHTML = markup;
+// }
+
+import "./src/u - patch";
+const BASE_URL = "http://localhost:3000";
+
+async function addBook(book) {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(book),
+  };
+  console.log("Hello");
+  const res = await fetch(`${BASE_URL}/books`, options);
+  return await res.json();
 }
 
-function renderUserListItems(users) {
-  const markup = users
-    .map(
-      (user) => `<li class="item">
-        <p><b>Name</b>: ${user.name}</p>
-        <p><b>Email</b>: ${user.email}</p>
-        <p><b>Company</b>: ${user.company.name}</p>
-      </li>`
-    )
-    .join("");
-  userList.innerHTML = markup;
+addBook({
+  title: "Тестовая книга по CSS",
+  author: "Я",
+  genres: ["CSS"],
+  rating: 9,
+})
+  .then(renderBook)
+  .catch((error) => console.log(error));
+
+function renderBook(book) {
+  console.log("Пришел ответ от бекенда можно рисовать");
+  console.log(book);
 }
